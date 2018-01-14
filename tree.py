@@ -26,10 +26,6 @@ class BinaryTree():
 
 def questionScore(x_train,q_no):
     numberOfOnes = 0
-    # print("QuestScore")
-    # print(x_train)
-    # print(q_no)
-    # print("Ending QS")
     for a in x_train[:,q_no]:
         if a == 1:
             numberOfOnes = numberOfOnes + 1
@@ -51,9 +47,6 @@ def findQuestion(x_train):
     if(len(x_train[0,1:]) <= 1):
         print("qeustionIf")
         return -1
-
-    print("restCases")
-
    
     questionScores = {}
     for x in range(len(x_train[0,:])-1):
@@ -83,9 +76,6 @@ def splitting(x_train , questionNumber):
         else:
             q_idx = counter
         counter = counter + 1
-    #print(idx)
-    #print(q_idx)
-
     counter = 1
     for i in x_train[1:,q_idx]:
         if i == 1.0:
@@ -93,13 +83,8 @@ def splitting(x_train , questionNumber):
         else:
             no_idx.append(counter)
         counter = counter + 1
-    #print(yes_idx)
-    #print(no_idx)
-
     left_x_train = x_train[np.ix_(no_idx,idx)]
-    #print(left_x_train)
     right_x_train = x_train[np.ix_(yes_idx,idx)]
-    #print(right_x_train)
 
     return (left_x_train , right_x_train)
 
@@ -189,6 +174,7 @@ for row in range(movieCount):
         matrix[row + 1][4] = 1
     if float(movies[row]["releasedate"])>=2010:
         matrix[row + 1][5] = 1
+
     if float(movies[row]["userrating"])>=7:
         matrix[row + 1][6] = 1
     if float(movies[row]["runtime"])<=100:
@@ -268,12 +254,9 @@ for x in x_scaled:
 
 # puting scaled column back into train data
 x_train[1:,1] = x_scaled
-#print(x_train)
 
 #creating the first root node
 rootQuestion = findQuestion(x_train)
 rootNode = BinaryTree(rootQuestion,x_train[1:,0])
 ( left_x_train , right_x_train ) = splitting( x_train , rootQuestion )
 simplifying(left_x_train,right_x_train,rootNode,x_train[1:,0])
-
-f2.close()
