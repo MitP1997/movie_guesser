@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	 <meta charset="utf-8"/>
+</head>
+<body>
+	<button onclick="test()">But</button>
+	<img id="test" src="" width="1000px" height="100px">
+<!-- <script type="module">
+	import Tesseract from 'https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js';
+	function ocr() {
+		/*var tess = Tesseract();*/
+		Tesseract.recognize("http://fabricjs.com/article_assets/2_7.png").then(function(result){
+    		alert(result);
+		});
+	}
+</script> -->
+<script src="https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js">
+	
+</script>
+<script type="text/javascript">
+	function test()
+	{
+		//document.getElementById('test').src="D:\\MoneyControl\\hackabot\\bot\\templates\\test.png"
+		document.getElementById('test').src="./abc.jpg";
+		Tesseract.recognize("./abc.jpg").then(function(result){
+    		console.log(result)
+		});
+		// Tesseract.detect("./test.png").then(function(result){
+  //   		console.log(result)
+		// });
+	}
+</script>
+
+</body>
+</html>
+

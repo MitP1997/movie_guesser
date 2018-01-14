@@ -1,0 +1,248 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Doodle I Fast build Admin dashboard for any platform</title>
+	<meta name="description" content="Doodle is a Dashboard & Admin Site Responsive Template by hencework." />
+	<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Doodle Admin, Doodleadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
+	<meta name="author" content="hencework"/>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+	<!-- switchery CSS -->
+		<link href="{% static "vendors/bower_components/switchery/dist/switchery.min.css" %}" rel="stylesheet" type="text/css"/>
+
+	<!-- Custom CSS -->
+	<link href="{% static "dist/css/style.css" %}" rel="stylesheet" type="text/css">
+	<link href="{% static "vendors/bower_components/switchery/dist/switchery.min.css" %}" rel="stylesheet" type="text/css"/>
+
+
+</head>
+
+<body style="overflow:auto">
+	<!--Preloader-->
+	<div class="preloader-it">
+		<div class="la-anim-1"></div>
+	</div>
+	<!--/Preloader-->
+    <div class="wrapper theme-4-active pimary-color-red">
+
+
+
+
+        <!-- Main Content -->
+		<div class="page-wrapper"  style="margin:auto; padding:0px" >
+            <div class="container-fluid">
+				<!-- Title -->
+				<div class="row heading-bg"  style="text-align:center;margin:auto;">
+					<div class="col-lg-12 ">
+					  <h5 class="txt-dark">Bot</h5>
+					</div>
+				</div>
+				<!-- /Title -->
+
+				<!-- Row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default border-panel card-view pa-0" style="margin-bottom:0px; margin-right:-14px; margin-left:-15px">
+							<div class="panel-wrapper collapse in">
+								<div class="panel-body pa-0">
+									<div class="chat-cmplt-wrap chat-for-widgets-1">
+										<div class="chat-box-wrap">
+											<div>
+												<form role="search" class="chat-search">
+													<div class="input-group">
+														<input id="example-input1-group21" name="example-input1-group2" class="form-control" placeholder="Search" type="text">
+														<span class="input-group-btn">
+														<button type="button" class="btn  btn-default"><i class="zmdi zmdi-search"></i></button>
+														</span>
+													</div>
+												</form>
+												<div class="chatapp-nicescroll-bar">
+													<ul class="chat-list-wrap">
+														<li class="chat-list">
+															<div class="chat-body">
+																<a  href="javascript:void(0)">
+																	<div class="chat-data active-user">
+																		<img class="user-img img-circle"  src="{% static "dist/img/user.png" %}" alt="user"/>
+																		<div class="user-data">
+																			<span class="name block capitalize-font">Clay Masse</span>
+																			<span class="time block truncate txt-grey">No one saves us but ourselves.</span>
+																		</div>
+																		<div class="status away"></div>
+																		<div class="clearfix"></div>
+																	</div>
+																</a>
+															</div>
+														</li>
+                            <li class="chat-list">
+															<div class="chat-body">
+																<a  href="javascript:void(0)">
+																	<div class="chat-data">
+																		<img class="user-img img-circle"  src="{% static "dist/img/user.png" %}" alt="user"/>
+																		<div class="user-data">
+																			<span class="name block capitalize-font">Clay Masse</span>
+																			<span class="time block truncate txt-grey">No one saves us but ourselves.</span>
+																		</div>
+																		<div class="status away"></div>
+																		<div class="clearfix"></div>
+																	</div>
+																</a>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="recent-chat-box-wrap">
+											<div class="recent-chat-wrap">
+												<div class="panel-heading ma-0 pt-15">
+													<div class="goto-back">
+														<span class="inline-block txt-dark" style="width:95%">*Topic*</span>
+														<a href="javascript:void(0)" class="inline-block text-right txt-grey" style="width:5%"><i class="zmdi zmdi-more"></i></a>
+														<div class="clearfix"></div>
+													</div>
+												</div>
+												<div class="panel-wrapper collapse in">
+													<div class="panel-body pa-0">
+														<div class="chat-content">
+															<ul class="chatapp-chat-nicescroll-bar pt-20">
+																<li class="friend">
+																	<div class="friend-msg-wrap">
+																		<img class="user-img img-circle block pull-left"  src="{% static "dist/img/user.png" %}" alt="user"/>
+																		<div class="msg pull-left">
+																			<p>Hello Jason, how are you, it's been a long time since we last met?</p>
+																			<div class="msg-per-detail text-right">
+																				<span class="msg-time txt-grey">2:30 PM</span>
+																			</div>
+																		</div>
+																		<div class="clearfix"></div>
+																	</div>
+																</li>
+																<li class="self mb-10">
+																	<div class="self-msg-wrap">
+																		<div class="msg block pull-right"> Oh, hi Sarah I'm have got a new job now and is going great.
+																			<div class="msg-per-detail text-right">
+																				<span class="msg-time txt-grey">2:31 pm</span>
+																			</div>
+																		</div>
+																		<div class="clearfix"></div>
+																	</div>
+																</li>
+
+															</ul>
+														</div>
+														<div class="input-group">
+  															<input type="text" id="input_msg_send_chatapp" onkeyup="checkEnter(event);" name="send-msg" class="input-msg-send form-control" placeholder="Type something">
+
+															<div class="input-group-btn attachment">
+																<div class="fileupload btn  btn-default"><i class="zmdi zmdi-attachment-alt" style="color:#bbb"></i>
+																	<input type="file" class="upload">
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Row -->
+        </div>
+        <!-- /Main Content -->
+
+    </div>
+    <!-- /#wrapper -->
+
+	<!-- JavaScript -->
+
+    <!-- jQuery -->
+	<script src="{% static "vendors/bower_components/jquery/dist/jquery.min.js" %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "vendors/bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- Slimscroll JavaScript -->
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js"></script>
+	<script src="{% static "dist/js/jquery.slimscroll.js" %}"></script>
+
+	<!-- Owl JavaScript -->
+	<script src="{% static "vendors/bower_components/owl.carousel/dist/owl.carousel.min.js" %}"></script>
+
+	<!-- Fancy Dropdown JS -->
+	<script src="{% static "dist/js/dropdown-bootstrap-extended.js" %}"></script>
+
+	<!-- Switchery JavaScript -->
+	<script src="{% static "vendors/bower_components/switchery/dist/switchery.min.js" %}"></script>
+
+	<!-- Init JavaScript -->
+	<script src="{% static "dist/js/init.js" %}"></script>
+	<!-- JavaScript -->
+
+    <!-- jQuery -->
+    <script src="{% static "vendors/bower_components/jquery/dist/jquery.min.js" %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "vendors/bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+
+	<!-- Slimscroll JavaScript -->
+	<script src="{% static "dist/js/jquery.slimscroll.js" %}"></script>
+
+
+
+	<!-- Init JavaScript -->
+
+
+	<script src="{% static "dist/js/init.js" %}"></script>
+  <script>
+
+    var dt = new Date();
+  function checkEnter(event) {
+    if(event.keyCode==13)
+    {
+      			$('<li class="self mb-10"><div class="self-msg-wrap"><div class="msg block pull-right">'
+                + $("#input_msg_send_chatapp").val() +
+                '<div class="msg-per-detail mt-5"><span class="msg-time txt-grey pull-right">'+
+                dt.getHours() + ":" + dt.getMinutes()
+                +'</span></div></div></div><div class="clearfix"></div></li>')
+               .insertAfter(".chat-for-widgets-1 .chat-content  ul li:last-child");
+      			$("#input_msg_send_chatapp").val('');
+            trig();
+    }
+  }
+
+
+
+  function trig() {
+                  $.ajax({
+                        type: "POST",
+                        url: "http://localhost:8000/questAnalysis/",
+                        data: {"quest":$("#myList li:last-child div div").text()},
+                        dataType: "json",
+                        success: function(resultData){
+                          if(resultData["success"] == "1"){
+                            $('<li class="friend mb-10"><div class="friend-msg-wrap"><img class="user-img img-circle block pull-left" src="/static/dist/img/user.png" alt="user"><div class="msg block pull-left">'
+                                + resultData["data"]["heading"] +
+                                '<div class="msg-per-detail mt-5"><span class="msg-time txt-grey pull-right">'+
+                                dt.getHours() + ":" + dt.getMinutes()
+                                +'</span></div></div></div><div class="clearfix"></div></li>')
+                               .insertAfter(".chat-for-widgets-1 .chat-content  ul li:last-child");
+
+
+                    }
+                    }
+                  });
+
+              }
+  </script>
+</body>
+
+</html>

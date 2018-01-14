@@ -1,0 +1,226 @@
+
+.coin {
+  margin: -50px 0 0 -50px;
+  width: 100px;
+  height: 100px;
+  -ms-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: rotateX(50deg);
+  animation: coin 2s linear infinite;
+}
+
+.coin .front {
+  width: 100%;
+  height: 100%;
+  
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*z-index: -1;*/
+}
+
+.coin .back {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: rotateY(180deg) translateZ(10px);
+  -webkit-transform: rotateY(180deg) translateZ(10px);
+  -ms-transform: rotateY(180deg) translateZ(10px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*z-index: 1;*/
+}
+/*.coin .filler{
+  width: 100%;
+  background-color: #ffe16f;
+  height: 10px;
+}*/
+.coin .front_b {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: translateZ(-1px);
+  -webkit-transform: translateZ(-1px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*z-index: 2;*/
+}
+
+.coin .back_b {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: translateZ(-9px);
+  -webkit-transform: translateZ(-9px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*z-index: -2;*/
+}
+
+.coin:before {
+  content: "";
+  margin-left: -5px;
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  /*z-index: 1;*/
+  -webkit-transform: rotateY(-90deg);
+  -webkit-transform-origin: 100% 50%;
+  transform: rotateY(-90deg);
+  transform-origin: 100% 50%;
+}
+
+.coin .front_b:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*z-index: 3;*/
+}
+
+.coin .front_b:after {
+  content: " ";
+ /*background: url("t.png")  no-repeat center center;*/
+  padding: 12px 0 0 0;
+  width: 100%;
+  height: 100%;
+  font-size: 5em;
+  font-weight: bold;
+  color: #fbb041;
+  line-height: 1;
+  text-align: center;
+  box-sizing: border-box;
+  position: absolute;  
+  top: 0;
+  left: 0;
+  /*z-index: 4;*/
+}
+
+.coin .back:before {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*z-index: -3;*/
+}
+
+.coin .back:after {
+  content: " ";
+  padding: 27px 0 0 0;
+  width: 100%;
+  height: 100%;
+  font-size: 3em;
+  font-weight: bold;
+  color: #fbb041;
+  line-height: 1;
+  text-align: center;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*z-index: -4;*/
+}
+
+.move {
+  position: absolute;
+  left: 50%;
+  top : 55%;
+}
+
+
+
+.slide {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(90deg) translateX(10px) translateZ(-10px);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+.slide > div {
+  display: block;
+  width: 10px;
+  height: 21px;
+  background-color: #ffe16b;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  top: 0;
+  left: 0;
+}
+.slide > div::after, .slide > div::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 21px;
+  background-color: #ffe16b;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slide > div::after {
+  top: -20px;
+  transform: rotateX(-10deg) translateZ(2px);
+}
+.slide > div::before {
+  top: 20px;
+  transform: rotateX(10deg) translateZ(2px);
+}
+.slide .c1 {
+  transform: rotateX(0) translateY(0) translateZ(0);
+}
+.slide .c2 {
+  transform: rotateX(-30deg) translateY(-56px) translateZ(-15px);
+}
+.slide .c3 {
+  transform: rotateX(-60deg) translateY(-98px) translateZ(-56px);
+}
+.slide .c4 {
+  transform: rotateX(-90deg) translateY(-114px) translateZ(-114px);
+}
+.slide .c5 {
+  transform: rotateX(-120deg) translateY(-98px) translateZ(-170px);
+}
+.slide .c6 {
+  transform: rotateX(-150deg) translateY(-56px) translateZ(-212px);
+}
+.slide .c7 {
+  transform: rotateX(-180deg) translateY(0) translateZ(-228px);
+}
+.slide .c8 {
+  transform: rotateX(30deg) translateY(56px) translateZ(-15px);
+}
+.slide .c9 {
+  transform: rotateX(60deg) translateY(98px) translateZ(-56px);
+}
+.slide .c10 {
+  transform: rotateX(90deg) translateY(114px) translateZ(-114px);
+}
+.slide .c11 {
+  transform: rotateX(120deg) translateY(98px) translateZ(-170px);
+}
+.slide .c12 {
+  transform: rotateX(150deg) translateY(56px) translateZ(-212px);
+}
