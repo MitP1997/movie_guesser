@@ -1,7 +1,3 @@
-##
-# pip install x,y,z,....
-# dependencies: numpy,scipy,
-##
 import json,datetime,sys
 sys.setrecursionlimit(3000)
 import numpy as np
@@ -58,28 +54,7 @@ def findQuestion(x_train):
 
     print("restCases")
 
-    """
-
-    [[      0.       2.       3.       4.       5.       7.       9.      10.
-       12.      13.      14.      15.      16.      17.      18.      19.
-       20.      21.      23.      24.      25.      26.      27.      28.
-       30.]
- [ 283995.       1.       0.       0.       1.       0.       1.       0.
-        0.       0.       0.       0.       0.       0.       0.       0.
-        0.       0.       0.       0.       0.       0.       0.       0.
-        0.]
- [ 315635.       1.       0.       0.       1.       0.       1.       0.
-        0.       0.       0.       0.       0.       0.       0.       0.
-        0.       0.       0.       0.       0.       0.       0.       0.
-        0.]]
-
-
-
-        [[  0.   2.   3.   4.   5.   7.   9.  10.  12.  13.  14.  15.  16.  17.
-   18.  19.  20.  21.  23.  24.  25.  26.  27.  28.  30.]]
-
-    """
-
+   
     questionScores = {}
     for x in range(len(x_train[0,:])-1):
         questionScores[str(x+1)] = str(questionScore(x_train[1:,1:],x))
@@ -131,9 +106,6 @@ def splitting(x_train , questionNumber):
 def simplifying(left_x_train,right_x_train,rootNode,movieList):
     findQL = findQuestion(left_x_train)
     findQR = findQuestion(right_x_train)
-    # print("QL QR")
-    # print(findQL)
-    # print(findQR)
     if (findQL == -1) and (findQR == -1):
         #print("Firt if")
         node = BinaryTree("Leaf",left_x_train[1:,0])
@@ -142,7 +114,6 @@ def simplifying(left_x_train,right_x_train,rootNode,movieList):
         rootNode.insertRight(node)
         return
     elif (findQL == -1) and ( not (findQR == -1)):
-        #print("Firt elif")
         #insert a node with a value "Leaf" to the left
         node = BinaryTree("Leaf",left_x_train[1:,0])
         rootNode.insertLeft(node)
@@ -154,7 +125,6 @@ def simplifying(left_x_train,right_x_train,rootNode,movieList):
         simplifying(left_right_x_train,right_right_x_train,node,right_x_train[1:,0])
         return
     elif ( not (findQL == -1)) and (findQR == -1):
-        #print("2 elif")
         #insert a node with a value "Leaf" to the right
         node = BinaryTree("Leaf",right_x_train[1:,0])
         rootNode.insertRight(node)
@@ -166,7 +136,6 @@ def simplifying(left_x_train,right_x_train,rootNode,movieList):
         simplifying(left_left_x_train,right_left_x_train,node,left_x_train[1:,0])
         return
     else:
-        #print("else")
         #code for right subtree
         rightValue = findQR
         node = BinaryTree(rightValue,right_x_train[1:,0])
@@ -181,38 +150,6 @@ def simplifying(left_x_train,right_x_train,rootNode,movieList):
         ( left_left_x_train , right_left_x_train ) = splitting( left_x_train , leftValue )
         simplifying(left_left_x_train,right_left_x_train,node,left_x_train[1:,0])
         return
-def filler(x):
-    f2.write(str(x))
-
-def printingIn(root):
-    if(str(root.nodeValue) != "Leaf" ):
-        printing(root.getLeft())
-        filler("Node ")
-        filler(root.nodeValue)
-        printing(root.getRight())
-    else:
-        filler("Leaf")
-        filler(root.movieList)
-    filler("\n")
-
-def printingPre(root):
-    if(str(root.nodeValue) != "Leaf" ):
-        filler("Node ")
-        filler(root.nodeValue)
-        printing(root.getLeft())
-        printing(root.getRight())
-    else:
-        filler("Leaf")
-        filler(root.movieList)
-    filler("\n")
-
-"""
-
-
-"""
-
-f2 = open("tree.txt","w+")
-
 
 f= open("data.txt","r")
 fileText=f.read()
@@ -237,7 +174,6 @@ for row in range(movieCount):
         castList.append(cast["name"])
 
     #start matrix filling
-    ##TODO improvize votes per year score
     #vote Feature
     score = float(movies[row]["votes"])/(float(datetime.datetime.now().year+1) - float(movies[row]["releasedate"]))
     matrix[row + 1][1] = score
@@ -253,7 +189,6 @@ for row in range(movieCount):
         matrix[row + 1][4] = 1
     if float(movies[row]["releasedate"])>=2010:
         matrix[row + 1][5] = 1
-    #
     if float(movies[row]["userrating"])>=7:
         matrix[row + 1][6] = 1
     if float(movies[row]["runtime"])<=100:
@@ -312,7 +247,6 @@ f.close()
 
 #type casting entire matrix into float
 x_train = np.array(matrix).astype(np.float)
-#print(x_train)
 
 #################################################################
 #           MIN MAX SCALING                                     #
@@ -342,22 +276,4 @@ rootNode = BinaryTree(rootQuestion,x_train[1:,0])
 ( left_x_train , right_x_train ) = splitting( x_train , rootQuestion )
 simplifying(left_x_train,right_x_train,rootNode,x_train[1:,0])
 
-
-printingIn(rootNode)
-#printingPre(rootNode)
-
-# a= np.array([[0,1,2,4,5,7],[3,0,1,1,1,1],[4,1,0,0,1,1],[5,1,1,1,0,0],[6,0,0,0,0,1]])
-#
-# q = findQuestion(a)
-# #print("First Question"+str(q))
-# root = BinaryTree(q,a[1:,0])
-#
-# (l,r)=splitting(a,q)
-# simplifying(l,r,root,a[1:,0])
-#
-# printing(root)
-# sys.exit()
-
-
-print("completed!!!!!!!!!")
 f2.close()
