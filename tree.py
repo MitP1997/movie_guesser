@@ -35,24 +35,19 @@ def questionScore(x_train,q_no):
     return ((score-0.5)**2)
 
 def findQuestion(x_train):
-
+    print("findQ")
+    print(x_train)
+    print("Ending findQ")
     # Checks for last movie
     if(len(x_train[1:,0]) <= 1):
+        print("movieIf")
         return -1
 
     # Checks for last question
     if(len(x_train[0,1:]) <= 1):
+        print("qeustionIf")
         return -1
-<<<<<<< HEAD
-
-<<<<<<< HEAD:treee.py
-=======
-    print("restCases")
-
-=======
->>>>>>> a9bd52bbe46aac5f4515ba258a20140de7b76019
    
->>>>>>> 05ddc66572e269c915d47773d87f2d9e43b36254:tree.py
     questionScores = {}
     for x in range(len(x_train[0,:])-1):
         questionScores[str(x+1)] = str(questionScore(x_train[1:,1:],x))
@@ -140,44 +135,8 @@ def simplifying(left_x_train,right_x_train,rootNode,movieList):
         ( left_left_x_train , right_left_x_train ) = splitting( left_x_train , leftValue )
         simplifying(left_left_x_train,right_left_x_train,node,left_x_train[1:,0])
         return
-<<<<<<< HEAD:treee.py
-def filler(x):
-    f2.write(str(x))
 
-def printingIn(root):
-    if(str(root.nodeValue) != "Leaf" ):
-        printingIn(root.getLeft())
-        filler("Node ")
-        filler(root.nodeValue)
-        filler("\n")
-        printingIn(root.getRight())
-    else:
-        filler("Leaf")
-        filler(root.movieList)
-        filler("\n")
-
-def printingPre(root):
-    if(str(root.nodeValue) != "Leaf" ):
-        filler("Node ")
-        filler(root.nodeValue)
-        filler("\n")
-        printingPre(root.getLeft())
-        printingPre(root.getRight())
-    else:
-        filler("Leaf")
-        filler(root.movieList)
-        filler("\n")
-
-"""
-
-"""
-
-f2 = open("tree.txt","w+")
-
-=======
->>>>>>> 05ddc66572e269c915d47773d87f2d9e43b36254:tree.py
-
-f= open("data2.txt","r")
+f= open("data.txt","r")
 fileText=f.read()
 fileJson=json.loads(fileText)
 movieCount = len(fileJson["json"])
@@ -190,7 +149,7 @@ for x in range(noOfQuestions):
     matrix[0][x + 1] = x + 1
 
 for row in range(movieCount):
-    print(movies[row]["id"])
+
     #initialize id into 2d array
     matrix[row + 1][0] = fileJson["json"][row]["id"]
 
@@ -201,11 +160,7 @@ for row in range(movieCount):
 
     #start matrix filling
     #vote Feature
-    score = float(movies[row]["votes"])
-    if (movies[row]["releasedate"]) == "":
-        (movies[row]["releasedate"]) == "2017"
-    print((float(datetime.datetime.now().year+2) - float(movies[row]["releasedate"])))
-    score = score / (float(datetime.datetime.now().year+2) - float(movies[row]["releasedate"]))
+    score = float(movies[row]["votes"])/(float(datetime.datetime.now().year+1) - float(movies[row]["releasedate"]))
     matrix[row + 1][1] = score
 
     #Grossing features
@@ -222,8 +177,6 @@ for row in range(movieCount):
 
     if float(movies[row]["userrating"])>=7:
         matrix[row + 1][6] = 1
-    if movies[row]["runtime"] == "":
-        movies[row]["runtime"] = "0"
     if float(movies[row]["runtime"])<=100:
         matrix[row + 1][7] = 1
 
@@ -307,33 +260,6 @@ rootQuestion = findQuestion(x_train)
 rootNode = BinaryTree(rootQuestion,x_train[1:,0])
 ( left_x_train , right_x_train ) = splitting( x_train , rootQuestion )
 simplifying(left_x_train,right_x_train,rootNode,x_train[1:,0])
-<<<<<<< HEAD
 
-<<<<<<< HEAD:treee.py
 from sklearn.externals import joblib
 joblib.dump(rootNode, 'tree.pkl')
-
-
-
-#printingIn(rootNode)
-#printingPre(rootNode)
-
-# a= np.array([[0,1,2,4,5,7],[3,0,1,1,1,1],[4,1,0,0,1,1],[5,1,1,1,0,0],[6,0,0,0,0,1]])
-#
-# q = findQuestion(a)
-# #print("First Question"+str(q))
-# root = BinaryTree(q,a[1:,0])
-#
-# (l,r)=splitting(a,q)
-# simplifying(l,r,root,a[1:,0])
-#
-# printing(root)
-# sys.exit()
-
-
-#print("completed!!!!!!!!!")
-=======
->>>>>>> 05ddc66572e269c915d47773d87f2d9e43b36254:tree.py
-f2.close()
-=======
->>>>>>> a9bd52bbe46aac5f4515ba258a20140de7b76019
